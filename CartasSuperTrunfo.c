@@ -6,13 +6,15 @@ int main() {
     
     // 1.1 variáveis para a primeira carta
     char estado[20], nome[20], codigo[20];
-    int populacao, turisticos;
-    float area, pib;
+    int turisticos;
+    unsigned long int populacao;
+    float area, pib, densidade, pibpercapita;
 
     // 1.2 variáveis para a segunda carta
     char estadoc2[20], nomec2[20], codigoc2[20];
-    int populacaoc2, turisticosc2;
-    float areac2, pibc2, pibpercapita, pibpercapitac2, densidade, densidadec2;
+    int turisticosc2;
+    unsigned long int populacaoc2;
+    float areac2, pibc2, pibpercapitac2, densidadec2;
 
     // 1.3 variáveis para cálculos
     float superpoderc1, superpoderc2;
@@ -32,7 +34,7 @@ int main() {
     scanf(" %s", &estado);
 
     printf("Qual a populaçao de sua cidade?\n");
-    scanf("%d", &populacao);
+    scanf("%u", &populacao);
 
     printf("Quantos são os pontos turísticos de sua cidade?\n");
     scanf("%d", &turisticos);
@@ -56,7 +58,7 @@ int main() {
     scanf(" %s", &estadoc2);
 
     printf("Qual a populaçao da segunda cidade?\n");
-    scanf("%d", &populacaoc2);
+    scanf("%u", &populacaoc2);
 
     printf("Quantos pontos turisticos tem sua cidade?\n");
     scanf(" %d", &turisticosc2);
@@ -86,7 +88,7 @@ int main() {
     printf("Estado: %s\n", estado);
     printf("Código: %s\n", codigo);
     printf("Nome da cidade: %s\n", nome);
-    printf("População: %d\n", populacao);
+    printf("População: %u\n", populacao);
     printf("Área: %.2f km²\n", area);
     printf("Pib: %.2f milhões de reais\n", pib);
     printf("Número de pontos turísticos: %d\n", turisticos);
@@ -99,7 +101,7 @@ int main() {
     printf("Estado: %s\n", estadoc2);
     printf("Código: %s\n", codigoc2);
     printf("Nome da cidade: %s\n", nomec2);
-    printf("População: %d\n", populacaoc2);
+    printf("População: %u\n", populacaoc2);
     printf("Área: %.2f km²\n", areac2);
     printf("Pib: %.2f milhões de reais\n", pibc2);
     printf("Número de pontos turísticos: %d\n", turisticosc2);
