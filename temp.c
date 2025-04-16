@@ -11,17 +11,20 @@ int main() {
     // variáveis para a primeira carta
     char estadoc1[20], codigoc1[20], nomec1[20];
     unsigned long long int populacaoc1;
-    float areac1, pibc1;
+    double areac1, pibc1;
     short int pontosturisticosc1;
 
     // variáveis para a segunda carta
     char estadoc2[20], codigoc2[20], nomec2[20];
     unsigned long long int populacaoc2;
-    float areac2, pibc2;
+    double areac2, pibc2;
     short int pontosturisticosc2;
 
     // variáveis para escolhas de opção (menus interativos)
     short int escolhainicial, escolhajogar, escolhasuascartas, escolhacomputador;
+
+    // variável para armazenar número randomico
+    unsigned long long int numeroRandomizado;
 
     // impressão de dados na tela para seleção de jogo
     printf("Olá! Bem vindo ao programa de super trunfo!\n");
@@ -77,63 +80,133 @@ int main() {
         break;
     }
 
+    // caso a escolha seja jogar com suas cartas randomizadas
     if (escolhasuascartas == 1)
     {
         printf("Randomizando suas cartas...\n");
 
+            // randomiza o número aleatório
+            numeroRandomizado = rand();
+        
+        // atribui um de 3 nomes de estados fictícios a sua carta
+        switch (numeroRandomizado % 3 + 1)
+        {
+        case 1:
+            estadoc1[20] = "Forest";
+            break;
+        
+        case 2:
+            estadoc1[20] = "MoonriseTowers";
+            break;
+
+        case 3:
+            estadoc1[20] = "BlightedVillage";
+            break;
+
+        }  
+
+
+        // atribui um código randomizado a sua carta
+        codigoc1[20] = numeroRandomizado % 100;
+
+
+        // atribui um de 5 nomes a sua carta
+        switch (numeroRandomizado % 5 + 1)
+        {
+        case 1:
+            nomec1[20] = "Grymforge";
+            break;
+        
+        case 2:
+            nomec1[20] = "GoblinCamp";
+            break;
+            
+        case 3:
+            nomec1[20] = "Nautiloid";
+            break;
+        
+        case 4:
+            nomec1[20] = "SunlitWetlands";
+            break;
+            
+        case 5:
+            nomec1[20] = "ArcaneTower";
+            break;
+
+        }
+
+            // randomiza o número aleatório novamente
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias população e área de sua carta
+        populacaoc1 = numeroRandomizado;
+
+        areac1 = numeroRandomizado + populacaoc1;
+
+            // randomiza o número aleatório novamente
+            numeroRandomizado = rand();
+
+        // atribui um número randomizado às categorias PIB e ponto turístico de sua carta
+        pibc1 = numeroRandomizado * 2,75;
+
+        pontosturisticosc1 = numeroRandomizado % 200;
+        
+        printf("%s, %s, %s, %d, %d, %llu", nomec1, estadoc1, codigoc1, areac1, pibc1, pontosturisticosc1);
     }
     
-
+    // caso a escolha seja > Jogar > cadastrando ambas as cartas
+    // ou Jogar > Contra o computador > cadastrando suas cartas
     if (escolhajogar == 2 || escolhasuascartas == 3)
     {
-    printf("*** Entre com os dados de sua primeira carta de Super trunfo: ***\n");
-    //
-    printf("Entre com o estado de sua cidade:\n");
-    scanf(" %s", estadoc1);
+        // dados para a primeira carta
+        printf("*** Entre com os dados de sua primeira carta de Super trunfo: ***\n");
+        printf("Entre com o estado de sua cidade:\n");
+        scanf(" %s", estadoc1);
 
-    printf("Entre com o código da sua primeira carta de super trunfo:\n");
-    scanf("%s", codigoc1);
+        printf("Entre com o código da sua primeira carta de super trunfo:\n");
+        scanf("%s", codigoc1);
 
-    printf("Entre com o nome da cidade escolhida:\n");
-    scanf("%s", nomec1);
+        printf("Entre com o nome da cidade escolhida:\n");
+        scanf("%s", nomec1);
 
-    printf("Entre com a população de sua cidade:\n");
-    scanf("%u", &populacaoc1);
+        printf("Entre com a população de sua cidade:\n");
+        scanf("%u", &populacaoc1);
 
-    printf("Entre com a área da sua cidade:\n");
-    scanf("%f", &areac1);
+        printf("Entre com a área da sua cidade:\n");
+        scanf("%d", &areac1);
 
-    printf("Entre com o PIB da sua cidade:\n");
-    scanf("%f", &pibc1);
+        printf("Entre com o PIB da sua cidade:\n");
+        scanf("%d", &pibc1);
 
-    printf("Entre com os pontos turísticos de sua cidade:\n");
-    scanf("%d", &pontosturisticosc1);
+        printf("Entre com os pontos turísticos de sua cidade:\n");
+        scanf("%d", &pontosturisticosc1);
     
+    // caso a escolha seja > Jogar > cadastrando ambas as cartas
     if (escolhajogar == 2)
     {
-    // 2.1 dados para a segunda carta
-    printf("Agora coloque os dados da segunda carta!\n");
+        // dados para a segunda carta
+        printf("Agora coloque os dados da segunda carta!\n");
 
-    printf("Entre com o estado de sua cidade:\n");
-    scanf(" %s", estadoc2);
+        printf("Entre com o estado de sua cidade:\n");
+        scanf(" %s", estadoc2);
 
-    printf("Entre com o código da sua segunda carta de super trunfo:\n");
-    scanf("%s", codigoc2);
+        printf("Entre com o código da sua segunda carta de super trunfo:\n");
+        scanf("%s", codigoc2);
 
-    printf("Entre com o nome da cidade escolhida:\n");
-    scanf("%s", nomec2);
+        printf("Entre com o nome da cidade escolhida:\n");
+        scanf("%s", nomec2);
 
-    printf("Entre com a população de sua cidade:\n");
-    scanf("%u", &populacaoc2);
+        printf("Entre com a população de sua cidade:\n");
+        scanf("%u", &populacaoc2);
 
-    printf("Entre com a área da sua cidade:\n");
-    scanf("%f", &areac2);
+        printf("Entre com a área da sua cidade:\n");
+        scanf("%d", &areac2);
 
-    printf("Entre com o PIB da sua cidade:\n");
-    scanf("%f", &pibc2);
+        printf("Entre com o PIB da sua cidade:\n");
+        scanf("%d", &pibc2);
 
-    printf("Entre com os pontos turísticos de sua cidade:\n");
-    scanf("%d", &pontosturisticosc2);
+        printf("Entre com os pontos turísticos de sua cidade:\n");
+        scanf("%d", &pontosturisticosc2);
     }
 
     // fazer calculos... densidade populacional e essas coisas aqui: simplificar super poder
@@ -268,3 +341,10 @@ int main() {
 }
 */
 // if else, utilizar operador ternário
+
+// melhorar legibilidade do código, decorebas e comentar melhor (unsigned long long int), short p pontos turisticos etc
+// escolher entre ler regras ou jogar
+// escolher entre jogar contra computador ou cadastrar ambas as cartas...
+// jogar contra computador pode ser aleatório (escolhe entre tipo 10 nomes ficticios de lugares de baldurs gate lol)
+// ou contra cidades reais; com geografia correta, escolhida aleatoriamente, tb umas 10 p facilitar
+// utilizar operador ternario ; ai no final ifelse pra ganhar perder ou empate apenas...
